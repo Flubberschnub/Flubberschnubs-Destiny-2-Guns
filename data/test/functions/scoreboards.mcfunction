@@ -8,6 +8,7 @@ scoreboard objectives add scope minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add magazine dummy
 scoreboard objectives add reloadtimer dummy
 scoreboard objectives add adstimer dummy
+scoreboard objectives add riflepulse dummy
 
 ##constants
 scoreboard players set Sunshotdamage Constant 45

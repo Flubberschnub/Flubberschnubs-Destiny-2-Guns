@@ -1,6 +1,7 @@
 {
  "values": [
  "test:scoreboards",
- "test:reloading"
+ "test:reloading",
+ "#load:__init"
  ]
 }

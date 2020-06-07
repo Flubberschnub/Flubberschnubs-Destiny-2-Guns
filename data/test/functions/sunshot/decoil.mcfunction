@@ -1,7 +1,6 @@
 ##decoil
 execute as @a[tag=!ads] run function test:sunshot/noadsrecoil
 execute as @a[tag=ads] run function test:sunshot/adsrecoil
-
 ##timer
 execute as @a[tag=recoil,scores={recoiltimer=..10}] at @s run tp @s ~ ~ ~ ~ ~0.5
 scoreboard players add @a[tag=recoil] recoiltimer 1

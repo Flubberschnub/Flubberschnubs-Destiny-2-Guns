@@ -5,10 +5,15 @@
 ## arrow no have yucky bubbles
 execute as @e[type=arrow,tag=timefreezed] run data merge entity @s {Color:-1}
 
-## sunshot ads
-execute as @a[tag=ads] unless score @s ads matches 1.. run function test:sunshot/adsoff
+##ads
+##sunshot
+execute as @a[tag=ads,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] unless score @s ads matches 1.. run function test:sunshot/adsoff
 execute as @a[tag=!ads,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] unless score @s ads matches 1.. run function test:sunshot/adsoff
 execute as @a[scores={ads=1..},tag=!ads,tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] run function test:sunshot/adson
+##graviton
+execute as @a[tag=ads,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1,ads:1}}}] unless score @s ads matches 1.. run function test:graviton/adsoff
+execute as @a[tag=!ads,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1,ads:1}}}] unless score @s ads matches 1.. run function test:graviton/adsoff
+execute as @a[scores={ads=1..},tag=!ads,tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1,ads:0}}}] run function test:graviton/adson
 #execute as @a[tag=ads,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] unless score @s scope matches 1.. run function test:sunshot/adsoff
 #execute as @a[scores={scope=1..},tag=!ads,tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] run function test:sunshot/adson
 scoreboard players reset @a ads
@@ -25,12 +30,20 @@ execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{
 #execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] at @s positioned ^ ^ ^1 run tp @e[tag=leftclick] ^ ^0.2 ^
 
 ##shooting
+##sunshot
 execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] at @s anchored eyes run function test:sunshot/shoot
 execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] at @s anchored eyes run function test:sunshot/shoot
 execute as @a[scores={shootgun=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function test:sunshot/reload
 execute as @a[scores={shootgun=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function test:sunshot/reload
+##graviton
+execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}}] at @s anchored eyes run function test:graviton/shoot
+execute as @a[scores={shootgun=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function test:graviton/reload
+
 scoreboard players reset @a shootgun
 
 ##reloading
+##sunshot
 execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,sunshot:1}}]}] unless entity @s[nbt={SelectedItem:{}}] run function test:sunshot/reload
 execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,sunshot:2}}]}] unless entity @s[nbt={SelectedItem:{}}] run function test:sunshot/reload
+##graviton
+execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,graviton:1}}]}] unless entity @s[nbt={SelectedItem:{}}] run function test:graviton/reload
