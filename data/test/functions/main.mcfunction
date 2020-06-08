@@ -2,6 +2,10 @@
 #execute as @e run function superhero:standstill
 #execute as @e[tag=test] run function superhero:test
 
+##magazine item to score
+#execute as @e[tag=!reloading,tag=!recoil,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] unless score @s adstimer matches 1.. store result score @s magazine run data get entity @s SelectedItem.tag.magazine 1
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] store result score @s magazine run data get entity @s SelectedItem.tag.magazine
+
 ## arrow no have yucky bubbles
 execute as @e[type=arrow,tag=timefreezed] run data merge entity @s {Color:-1}
 
@@ -47,3 +51,6 @@ execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count
 execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,sunshot:2}}]}] unless entity @s[nbt={SelectedItem:{}}] run function test:sunshot/reload
 ##graviton
 execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,graviton:1}}]}] unless entity @s[nbt={SelectedItem:{}}] run function test:graviton/reload
+
+##magazine score to item
+#execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] run function test:general/setmag

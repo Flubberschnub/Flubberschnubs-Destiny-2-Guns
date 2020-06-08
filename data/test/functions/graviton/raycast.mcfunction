@@ -3,11 +3,11 @@ scoreboard players reset Crit shootgun
 execute positioned ~ ~ ~ if score Range shootgun matches 10.. run playsound bulletwhistle master @a[distance=..3.5]
 ##particles
 execute as @s[tag=ads] if score Range shootgun matches 2 if score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.06 ^ ^ ^0.1 0 0 0 1 20 normal @s
-execute as @s[tag=ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 1.000 0.655 0.478 0.1 ^ ^ ^0.05 0.01 0.01 0.01 1 5 normal @s
-execute as @s[tag=ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.1 ^ ^ ^0.05 0.01 0.01 0.01 1 2 normal @s
+execute as @s[tag=ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 1.000 0.655 0.478 0.1 ^ ^ ^0.1 0.01 0.01 0.01 1 5 normal @s
+execute as @s[tag=ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.1 ^ ^ ^0.1 0.01 0.01 0.01 1 2 normal @s
 execute as @s[tag=!ads] if score Range shootgun matches 2 if score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.06 ^-.03 ^ ^0.1 0 0 0 1 20 normal @s
-execute as @s[tag=!ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 1.000 0.655 0.478 0.1 ^-.03 ^ ^0.05 0.01 0.01 0.01 1 5 normal @s
-execute as @s[tag=!ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.1 ^-.03 ^ ^0.05 0.01 0.01 0.01 1 2 normal @s
+execute as @s[tag=!ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 1.000 0.655 0.478 0.1 ^-.03 ^ ^0.1 0.01 0.01 0.01 1 5 normal @s
+execute as @s[tag=!ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.1 ^-.03 ^ ^0.1 0.01 0.01 0.01 1 2 normal @s
 
 execute unless block ~ ~ ~ #minecraft:batonblocks run scoreboard players set FINISH shootgun 1
 execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#minecraft:mobs] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1

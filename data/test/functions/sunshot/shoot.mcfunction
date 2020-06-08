@@ -4,6 +4,7 @@ stopsound @s master sunshotreload
 tag @s[tag=reloading] remove reloading
 tag @s add shooter
 scoreboard players remove @s magazine 1
+function test:general/setmag
 execute at @s run playsound sunshot master @a[distance=..30] ~ ~ ~ 5
 tag @s add rpm
 scoreboard players reset @s recoiltimer

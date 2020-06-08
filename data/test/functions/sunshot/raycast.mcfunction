@@ -4,8 +4,11 @@ execute positioned ~ ~ ~ if score Range shootgun matches 10.. run playsound bull
 execute if score Range shootgun matches 2 at @s anchored eyes run particle flash ^ ^ ^0.2 0 0 0 0 1 normal @s
 execute unless block ~ ~ ~ #minecraft:batonblocks run scoreboard players set FINISH shootgun 1
 execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#minecraft:mobs] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
+execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#aestd1:bosses] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
 execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#minecraft:mobs] if score Range shootgun matches 0.. at @s run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 10 2
+execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#aestd1:bosses] if score Range shootgun matches 0.. at @s run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 10 2
 execute positioned ~ ~-0.9 ~ as @e[distance=..1,type=#minecraft:mobs] positioned ~ ~0.2 ~ unless entity @s[distance=..1] if score Range shootgun matches 0.. at @s run scoreboard players set Crit shootgun 1
+execute positioned ~ ~-0.9 ~ as @e[distance=..1,type=#aestd1:bosses] positioned ~ ~0.2 ~ unless entity @s[distance=..1] if score Range shootgun matches 0.. at @s run scoreboard players set Crit shootgun 1
 execute positioned ~ ~-0.9 ~ as @a[distance=..1,tag=!shooter] positioned ~ ~0.2 ~ unless entity @s[distance=..1] if score Range shootgun matches 0.. at @s run scoreboard players set Crit shootgun 1
 execute positioned ~ ~-0.9 ~ if entity @a[distance=..1,tag=!shooter] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
 execute positioned ~ ~-0.9 ~ if entity @a[distance=..1,tag=!shooter] if score Range shootgun matches 0.. at @s run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 10 2

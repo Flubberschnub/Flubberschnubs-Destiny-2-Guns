@@ -1,7 +1,7 @@
 ##loading
 scoreboard players add @a[tag=reloading] reloadtimer 1
-execute as @a[tag=reloading] if score @s reloadtimer matches ..30 run schedule function test:sunshot/loading 1t
-execute as @a[tag=reloading] if score @s reloadtimer matches 31.. run scoreboard players set @s magazine 12
+execute as @a[tag=reloading] as @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] if score @s reloadtimer matches ..30 run schedule function test:sunshot/scheduleloading 1t append
+execute as @a[tag=reloading] if score @s reloadtimer matches 31.. run function test:sunshot/fullmag
 execute as @a[tag=reloading] if score @s reloadtimer matches 31.. run tag @s remove reloading
 execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] if score @s reloadtimer matches 31.. run function test:sunshot/resetads
 execute as @a if score @s reloadtimer matches 31.. run scoreboard players reset @s reloadtimer
@@ -45,3 +45,6 @@ execute as @a[tag=reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",
 #execute as @a[tag=reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] at @s if score @s reloadtimer matches 20 run playsound minecraft:entity.item_frame.remove_item master @a[distance=..10] ~ ~ ~ 10 2
 #execute as @a[tag=reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] at @s if score @s reloadtimer matches 27 run playsound minecraft:block.iron_trapdoor.close master @a[distance=..10] ~ ~ ~ 10 1
 execute as @a[tag=reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] at @s if score @s reloadtimer matches 8 run playsound minecraft:sunshotreload master @a[distance=..10] ~ ~ ~ 3
+
+##setmag
+execute as @a[tag=reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] run function test:general/setmag

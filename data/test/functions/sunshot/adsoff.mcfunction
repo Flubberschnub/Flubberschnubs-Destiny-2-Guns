@@ -7,4 +7,8 @@ effect clear @s slowness
 tag @s remove ads
 execute if score @s adstimer matches 1 at @s run playsound minecraft:adsoff master @s
 execute if score @s adstimer matches ..3 as @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] run schedule function test:sunshot/scheduleadsoff 1t
+execute if score @s adstimer matches 4.. run function test:general/setmag
 execute if score @s adstimer matches 4.. run scoreboard players reset @s adstimer
+
+##setmag
+execute as @s run function test:general/setmag
