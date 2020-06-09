@@ -20,7 +20,7 @@ execute at @s[tag=!ads] unless score @s riflepulse matches 1 run tp @s ~ ~ ~ ~ ~
 tag @s add recoil
 function test:graviton/decoil
 scoreboard players reset @s shootgun
-execute if score @s riflepulse matches 1 run schedule function test:graviton/resetrpm 9t
+execute if score @s riflepulse matches 1 run schedule function test:graviton/resetrpm 10t
 #schedule function test:sunshot/decoil 2t
 #schedule function test:sunshot/decoil 3t
 #schedule function test:sunshot/decoil 4t
