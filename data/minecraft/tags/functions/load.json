@@ -1,7 +1,7 @@
 {
  "values": [
- "test:scoreboards",
- "test:reloading",
+ "guns:scoreboards",
+ "guns:reloading",
  "#load:__init"
  ]
 }
