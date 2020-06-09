@@ -1,7 +1,13 @@
 ##raycast
 scoreboard players reset Crit shootgun
 execute positioned ~ ~ ~ if score Range shootgun matches 10.. run playsound bulletwhistle master @a[distance=..3.5]
-execute if score Range shootgun matches 2 at @s anchored eyes run particle flash ^ ^ ^0.2 0 0 0 0 1 normal @s
+##particles
+execute as @s[tag=ads] if score Range shootgun matches 2 at @s anchored eyes run particle dust 1.000 0.710 0.031 0.1 ^ ^ ^0.1 0 0 0 1 20 normal @s
+execute as @s[tag=!ads] if score Range shootgun matches 2 at @s anchored eyes run particle dust 1.000 0.710 0.031 0.1 ^-.03 ^ ^0.1 0 0 0 1 20 normal @s
+execute if score Range shootgun matches 8.. run particle minecraft:mycelium ~ ~ ~ 0 0 0 0 1
+execute if score Range shootgun matches 8.. run particle dust 1.000 0.871 0.020 .5 ~ ~ ~ 0 0 0 3 1
+#execute if score Range shootgun matches 2 at @s anchored eyes run particle flash ^ ^ ^0.2 0 0 0 0 1 normal @s
+
 execute unless block ~ ~ ~ #minecraft:batonblocks run scoreboard players set FINISH shootgun 1
 execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#minecraft:mobs] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
 execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#aestd1:bosses] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1

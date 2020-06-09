@@ -8,6 +8,9 @@ execute as @s[tag=ads] if score Range shootgun matches 2 unless score @s riflepu
 execute as @s[tag=!ads] if score Range shootgun matches 2 if score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.06 ^-.03 ^ ^0.1 0 0 0 1 20 normal @s
 execute as @s[tag=!ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 1.000 0.655 0.478 0.1 ^-.03 ^ ^0.1 0.01 0.01 0.01 1 5 normal @s
 execute as @s[tag=!ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.1 ^-.03 ^ ^0.1 0.01 0.01 0.01 1 2 normal @s
+execute if score Range shootgun matches 8.. run particle minecraft:mycelium ~ ~ ~ 0 0 0 0 1
+execute if score Range shootgun matches 8.. if score @s riflepulse matches 1 run particle dust 0.588 0.122 1.000 .5 ~ ~ ~ 0 0 0 3 1
+execute if score Range shootgun matches 8.. unless score @s riflepulse matches 1 run particle dust 1.000 0.655 0.478 .5 ~ ~ ~ 0 0 0 3 1
 
 execute unless block ~ ~ ~ #minecraft:batonblocks run scoreboard players set FINISH shootgun 1
 execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#minecraft:mobs] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
@@ -26,7 +29,6 @@ execute as @e[distance=..2] run execute store result score @s hp run data get en
 #execute if score FINISH shootgun matches 1 run tag @a[distance=..2] add sunkissed
 #execute store result score sunshotcount Constant run execute if entity @e[tag=sunkissed]
 execute store result score TEMP1 Constant run scoreboard players get sunshotcount Constant
-execute if score Range shootgun matches 8.. run particle minecraft:mycelium ~ ~ ~ 0 0 0 0 1
 scoreboard players add Range shootgun 1
 execute if score Range shootgun matches 150.. run scoreboard players set FINISH shootgun 1
 #execute if score FINISH shootgun matches 1 run summon pufferfish

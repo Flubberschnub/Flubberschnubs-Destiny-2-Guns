@@ -51,7 +51,17 @@ execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count
 execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,graviton:1}}]}] unless entity @s[nbt={SelectedItem:{}}] run function test:graviton/reload
 
 ##rounds left
-title @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] actionbar {"score":{"name":"@s","objective":"magazine"},"color":"gray","bold":true,"italic":false}
+##reloading
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}},tag=reloading] run title @s actionbar {"text":"--/--","color":"dark_gray","italic":false}
+##graviton
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}},tag=!reloading,scores={magazine=9..}] run title @s actionbar [{"score":{"name":"@s","objective":"magazine"},"color":"dark_purple","italic":false},{"text":"/30","color":"dark_gray","italic":false}]
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}},tag=!reloading,scores={magazine=..8}] run title @s actionbar [{"score":{"name":"@s","objective":"magazine"},"color":"dark_red","italic":false},{"text":"/30","color":"dark_gray","italic":false}]
+##sunshot
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}},tag=!reloading,scores={magazine=5..}] run title @s actionbar [{"score":{"name":"@s","objective":"magazine"},"color":"gold","italic":false},{"text":"/12","color":"dark_gray","italic":false}]
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}},tag=!reloading,scores={magazine=5..}] run title @s actionbar [{"score":{"name":"@s","objective":"magazine"},"color":"gold","italic":false},{"text":"/12","color":"dark_gray","italic":false}]
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}},tag=!reloading,scores={magazine=..4}] run title @s actionbar [{"score":{"name":"@s","objective":"magazine"},"color":"dark_red","italic":false},{"text":"/12","color":"dark_gray","italic":false}]
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}},tag=!reloading,scores={magazine=..4}] run title @s actionbar [{"score":{"name":"@s","objective":"magazine"},"color":"dark_red","italic":false},{"text":"/12","color":"dark_gray","italic":false}]
+
 
 ##magazine score to item
 #execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] run function test:general/setmag
