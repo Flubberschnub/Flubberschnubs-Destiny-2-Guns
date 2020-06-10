@@ -7,11 +7,11 @@ execute positioned ~ ~ ~ as @e[limit=1,distance=..20,type=#guns:livingthings,tag
 execute positioned ~ ~ ~ as @e[limit=1,distance=..20,type=#guns:livingthings,tag=!cosmoimmune] unless score @s cosmotarget matches 0.. run scoreboard players set @s cosmotarget 0
 execute positioned ~ ~ ~ as @e[limit=1,distance=..20,type=#guns:livingthings,tag=!cosmoimmune] unless score @s cosmotarget matches 0.. run scoreboard players set @s cosmotarget 0
 tag @e[tag=cosmoimmune] remove cosmoimmune
-execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:100,Tags:["cosmology"]}
-execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:100,Tags:["cosmology"]}
-execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:100,Tags:["cosmology"]}
-execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:100,Tags:["cosmology"]}
-execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:100,Tags:["cosmology"]}
+execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:30,Tags:["cosmology"]}
+execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:30,Tags:["cosmology"]}
+execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:30,Tags:["cosmology"]}
+execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:30,Tags:["cosmology"]}
+execute positioned ~ ~.5 ~ run summon minecraft:area_effect_cloud ~ ~ ~ {Particle:"portal",Duration:30,Tags:["cosmology"]}
 execute as @e[tag=cosmology] unless score @s Constant matches 1.. run scoreboard players set @s Constant 0
 execute as @e[tag=cosmology,limit=1,scores={Constant=0}] run scoreboard players set @s Constant 1
 execute as @e[tag=cosmology,limit=1,scores={Constant=0}] run scoreboard players set @s Constant 2
