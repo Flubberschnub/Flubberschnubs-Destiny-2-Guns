@@ -4,10 +4,10 @@ execute positioned ~ ~ ~ if score Range shootgun matches 10.. run playsound bull
 ##particles
 execute as @s[tag=ads] if score Range shootgun matches 2 if score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.06 ^ ^ ^0.1 0 0 0 1 20 normal @s
 execute as @s[tag=ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 1.000 0.655 0.478 0.1 ^ ^ ^0.1 0.01 0.01 0.01 1 5 normal @s
-execute as @s[tag=ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.1 ^ ^ ^0.1 0.01 0.01 0.01 1 2 normal @s
+#execute as @s[tag=ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.1 ^ ^ ^0.1 0.01 0.01 0.01 1 2 normal @s
 execute as @s[tag=!ads] if score Range shootgun matches 2 if score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.06 ^-.03 ^ ^0.1 0 0 0 1 20 normal @s
 execute as @s[tag=!ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 1.000 0.655 0.478 0.1 ^-.03 ^ ^0.1 0.01 0.01 0.01 1 5 normal @s
-execute as @s[tag=!ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.1 ^-.03 ^ ^0.1 0.01 0.01 0.01 1 2 normal @s
+#execute as @s[tag=!ads] if score Range shootgun matches 2 unless score @s riflepulse matches 1 at @s anchored eyes run particle dust 0.588 0.122 1.000 0.1 ^-.03 ^ ^0.1 0.01 0.01 0.01 1 2 normal @s
 execute if score Range shootgun matches 8.. run particle minecraft:mycelium ~ ~ ~ 0 0 0 0 1
 execute if score Range shootgun matches 8.. if score @s riflepulse matches 1 run particle dust 0.588 0.122 1.000 .5 ~ ~ ~ 0 0 0 3 1
 execute if score Range shootgun matches 8.. unless score @s riflepulse matches 1 run particle dust 1.000 0.655 0.478 .5 ~ ~ ~ 0 0 0 3 1

@@ -1,5 +1,5 @@
 ##summon
-execute positioned ~ ~ ~ run particle minecraft:portal ~ ~1 ~ 0.2 0.2 0.2 2 200
+execute positioned ~ ~ ~ run particle dust 0.588 0.122 1.000 .7 ~ ~1 ~ 0.5 1 0.5 3 200
 tag @s add cosmoimmune
 execute positioned ~ ~ ~ as @e[limit=1,distance=..20,type=#guns:livingthings,tag=!cosmoimmune] unless score @s cosmotarget matches 0.. run scoreboard players set @s cosmotarget 0
 execute positioned ~ ~ ~ as @e[limit=1,distance=..20,type=#guns:livingthings,tag=!cosmoimmune] unless score @s cosmotarget matches 0.. run scoreboard players set @s cosmotarget 0

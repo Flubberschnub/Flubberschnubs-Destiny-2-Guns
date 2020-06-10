@@ -14,7 +14,7 @@ execute as @s[scores={Constant=4}] at @s facing entity @e[scores={cosmotarget=4}
 execute as @s[scores={Constant=5}] at @s facing entity @e[scores={cosmotarget=5},limit=1,sort=nearest] feet run tp @s ^ ^ ^0.2
 
 ##particel
-execute at @s run particle portal ~ ~ ~ .1 .1 .1 0 5
+execute at @s run particle dust 0.588 0.122 1.000 .5 ~ ~ ~ 0.05 0.05 0.05 3 15
 
 ##found entity
 execute at @s[scores={Constant=1}] as @e[scores={cosmotarget=1},distance=..0.3] run function guns:graviton/cosmology/hit
@@ -25,6 +25,7 @@ execute at @s[scores={Constant=5}] as @e[scores={cosmotarget=5},distance=..0.3] 
 
 ##didnt find entity
 execute at @s[scores={Constant=1},nbt={Age:29}] run scoreboard players reset @e cosmotarget
+execute at @s[scores={Constant=1..5},nbt={Age:29}] run particle minecraft:portal ~ ~ ~ .1 .1 .1 .2 15 normal
 
 ##no cosmotargets?  make more
 execute positioned ~ ~ ~ as @e[distance=..20,type=#guns:livingthings,tag=!cosmoimmune] unless score @s cosmotarget matches 0.. run scoreboard players set @s cosmotarget 0
