@@ -6,3 +6,4 @@ execute as @s[type=!player] run function aestd1:entity/damage
 execute as @s[type=player] run effect give @s instant_damage 1 0 true
 execute at @s run kill @e[type=area_effect_cloud,tag=cosmology,limit=1,sort=nearest]
 scoreboard players reset @s cosmotarget
+execute at @s run playsound cosmorb master @a[distance=..20] ~ ~ ~ .3
