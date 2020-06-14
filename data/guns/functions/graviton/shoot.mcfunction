@@ -19,8 +19,9 @@ execute at @s anchored eyes run function guns:graviton/raycast
 #execute at @s[tag=!ads] unless score @s riflepulse matches 1 run tp @s ~ ~ ~ ~ ~-3
 tag @s add recoil
 function guns:graviton/decoil
-scoreboard players reset @s shootgun
-execute if score @s riflepulse matches 1 run schedule function guns:graviton/resetrpm 10t
+#scoreboard players reset @s shootgun
+tag @s add holding
+schedule function guns:graviton/resetrpm 10t append
 #schedule function guns:sunshot/decoil 2t
 #schedule function guns:sunshot/decoil 3t
 #schedule function guns:sunshot/decoil 4t

@@ -35,15 +35,17 @@ execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{
 
 ##shooting
 ##sunshot
-execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] at @s anchored eyes run function guns:sunshot/shoot
-execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] at @s anchored eyes run function guns:sunshot/shoot
+execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,tag=!holding,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] at @s anchored eyes run function guns:sunshot/shoot
+execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,tag=!holding,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] at @s anchored eyes run function guns:sunshot/shoot
 execute as @a[scores={shootgun=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:sunshot/reload
 execute as @a[scores={shootgun=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:sunshot/reload
 ##graviton
-execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}}] at @s anchored eyes run function guns:graviton/shoot
+execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,tag=!holding,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}}] at @s anchored eyes run function guns:graviton/shoot
 execute as @a[scores={shootgun=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:graviton/reload
 
-scoreboard players reset @a shootgun
+##recoil constantly runs on timer
+execute as @a[scores={recoiltimer=1..}] run function guns:general/recoiloop
+#scoreboard players reset @a shootgun
 
 ##reloading
 ##sunshot
@@ -51,6 +53,9 @@ execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count
 execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,sunshot:2}}]}] unless entity @s[nbt={SelectedItem:{}}] run function guns:sunshot/reload
 ##graviton
 execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,graviton:1}}]}] unless entity @s[nbt={SelectedItem:{}}] run function guns:graviton/reload
+
+##reload constantly runs on timer
+execute as @a[scores={reloadtimer=1..}] run function guns:general/reloadloop
 
 ##rounds left
 ##reloading
@@ -67,3 +72,14 @@ execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{
 
 ##magazine score to item
 #execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] run function guns:general/setmag
+
+##temporary
+scoreboard players remove @a[scores={holdingtimer=1..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] holdingtimer 1
+scoreboard players set @a[scores={shootgun=1},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] holdingtimer 5
+#execute as @a[scores={holdingtimer=1..}] run say hi
+execute as @a[scores={holdingtimer=..0},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1}}}] run tag @s remove holding
+scoreboard players reset @a[scores={shootgun=1..}] shootgun
+
+##crucible
+effect give @a[tag=crucible] speed 1 1 true
+effect give @a[tag=crucible] jump_boost 1 1 true

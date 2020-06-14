@@ -12,6 +12,7 @@ scoreboard objectives add riflepulse dummy
 scoreboard objectives add timer dummy
 scoreboard objectives add cosmotarget dummy
 scoreboard objectives add healthpoints health
+scoreboard objectives add holdingtimer dummy
 
 ##constants
 scoreboard players set Sunshotdamage Constant 45
