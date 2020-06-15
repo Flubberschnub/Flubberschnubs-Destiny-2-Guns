@@ -9,15 +9,15 @@ execute if score Range shootgun matches 8.. run particle dust 1.000 0.710 0.031 
 #execute if score Range shootgun matches 2 at @s anchored eyes run particle flash ^ ^ ^0.2 0 0 0 0 1 normal @s
 
 execute unless block ~ ~ ~ #minecraft:batonblocks run scoreboard players set FINISH shootgun 1
-execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#minecraft:mobs] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
-execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#aestd1:bosses] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
-execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#minecraft:mobs] if score Range shootgun matches 0.. at @s run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 10 2
-execute positioned ~ ~-0.9 ~ if entity @e[distance=..1,type=#aestd1:bosses] if score Range shootgun matches 0.. at @s run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 10 2
-execute positioned ~ ~-0.9 ~ as @e[distance=..1,type=#minecraft:mobs] positioned ~ ~0.2 ~ unless entity @s[distance=..1] if score Range shootgun matches 0.. at @s run scoreboard players set Crit shootgun 1
-execute positioned ~ ~-0.9 ~ as @e[distance=..1,type=#aestd1:bosses] positioned ~ ~0.2 ~ unless entity @s[distance=..1] if score Range shootgun matches 0.. at @s run scoreboard players set Crit shootgun 1
-execute positioned ~ ~-0.9 ~ as @a[distance=..1,tag=!shooter] positioned ~ ~0.2 ~ unless entity @s[distance=..1] if score Range shootgun matches 0.. at @s run scoreboard players set Crit shootgun 1
-execute positioned ~ ~-0.9 ~ if entity @a[distance=..1,tag=!shooter] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
-execute positioned ~ ~-0.9 ~ if entity @a[distance=..1,tag=!shooter] if score Range shootgun matches 0.. at @s run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 10 2
+execute as @e[dx=0,type=#minecraft:mobs] positioned ~-.99 ~-.99 ~-.99 if entity @s[dx=0] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
+execute as @e[dx=0,type=#aestd1:bosses] positioned ~-.99 ~-.99 ~-.99 if entity @s[dx=0] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
+execute if entity @e[dx=0,type=#minecraft:mobs] if score Range shootgun matches 0.. at @s run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 10 2
+execute if entity @e[dx=0,type=#aestd1:bosses] if score Range shootgun matches 0.. at @s run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 10 2
+execute as @e[dx=0,type=#minecraft:mobs] positioned ~-.99 ~-.99 ~-.99 if entity @s[dx=0] positioned ~.99 ~.99 ~.99 positioned ~ ~-1.7 ~ if entity @s[distance=..0.35] if score Range shootgun matches 0.. at @s run scoreboard players set Crit shootgun 1
+execute as @e[dx=0,type=#aestd1:bosses] positioned ~-.99 ~-.99 ~-.99 if entity @s[dx=0] positioned ~.99 ~.99 ~.99 positioned ~ ~-1.7 ~ if entity @s[distance=..0.35] if score Range shootgun matches 0.. at @s run scoreboard players set Crit shootgun 1
+execute as @a[dx=0,tag=!shooter] positioned ~-.99 ~-.99 ~-.99 if entity @s[dx=0] positioned ~.99 ~.99 ~.99 positioned ~ ~-1.7 ~ if entity @s[distance=..0.35] if score Range shootgun matches 0.. at @s run scoreboard players set Crit shootgun 1
+execute as @a[dx=0,tag=!shooter] positioned ~-.99 ~-.99 ~-.99 if entity @s[dx=0] if score Range shootgun matches 0.. run scoreboard players set FINISH shootgun 1
+execute if entity @a[dx=0,tag=!shooter] if score Range shootgun matches 0.. at @s run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 10 2
 execute if score Crit shootgun matches 1 at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 0.3 2
 execute if score Crit shootgun matches 1 positioned ~ ~ ~ run particle angry_villager ~ ~ ~ 0 0 0 0.1 1
 execute as @e[distance=..2] run execute store result score @s hp run data get entity @s Health 1
@@ -32,8 +32,8 @@ execute if score Range shootgun matches 100.. run scoreboard players set FINISH 
 execute if score FINISH shootgun matches 1 unless block ^ ^ ^.5 #minecraft:batonblocks run particle lava ^ ^ ^-0.5 0 0 0 0.5 5 force
 execute positioned ^ ^ ^0.5 unless score FINISH shootgun matches 1 run function guns:sunshot/raycast
 execute if score FINISH shootgun matches 1 run scoreboard players operation TEST shootgun = Range shootgun
-execute positioned ~ ~-0.9 ~ if score FINISH shootgun matches 1 unless score Crit shootgun matches 1 run function guns:sunshot/nocrit
-execute positioned ~ ~-0.9 ~ if score FINISH shootgun matches 1 if score Crit shootgun matches 1 run function guns:sunshot/crit
+execute if score FINISH shootgun matches 1 unless score Crit shootgun matches 1 run function guns:sunshot/nocrit
+execute if score FINISH shootgun matches 1 if score Crit shootgun matches 1 run function guns:sunshot/crit
 #execute if score FINISH shootgun matches 1 store result score sunshotcount2 Constant run execute if entity @e[tag=sunkissed]
 #execute if score FINISH shootgun matches 1 unless score sunshotcount2 Constant = sunshotcount Constant run say wow
 #execute store result score TEMP Constant run scoreboard players get sunshotcount2 Constant
