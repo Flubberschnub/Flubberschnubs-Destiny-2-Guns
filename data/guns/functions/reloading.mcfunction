@@ -4,4 +4,4 @@
 ##no command feedback
 #gamerule sendCommandFeedback false
 ##message
-tellraw @a ["",{"text":"Reloaded!","underlined":true,"color":"green"},{"text":"   Sunshot","bold":true,"italic":true,"color":"gold"},{"text":" "},{"text":"by","color":"yellow"},{"text":" "},{"text":"F","color":"dark_aqua"},{"text":"lubberschnub","color":"dark_gray"}]
+tellraw @a ["",{"text":"Reloaded!","underlined":true,"color":"green"},{"text":"   Destiny 2 Guns","bold":true,"italic":true,"color":"gold"},{"text":" "},{"text":"by","color":"yellow"},{"text":" "},{"text":"F","color":"dark_aqua"},{"text":"lubberschnub","color":"dark_gray"}]
