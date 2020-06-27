@@ -1,9 +1,8 @@
 {
 	"values": [
-		"#aestd1:passive",
-		"#aestd1:neutral",
-		"#aestd1:hostile",
-		"#aestd1:bosses",
-		"minecraft:player"
+		"#aestd1:mobs",
+		"minecraft:player",
+		"minecraft:armor_stand",
+    "#aestd1:bosses"
 	]
 }

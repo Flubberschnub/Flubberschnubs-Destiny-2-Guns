@@ -157,7 +157,79 @@
 								{
 									"condition": "minecraft:location_check",
 									"predicate": {
-										"biome": "minecraft:nether"
+										"biome": "minecraft:nether_wastes"
+									}
+								}
+							],
+							"type": "minecraft:item",
+							"name": "minecraft:golden_hoe",
+							"functions": [
+								{
+									"function": "minecraft:set_count",
+									"count": 8
+								}
+							]
+						},
+						{
+							"conditions": [
+								{
+									"condition": "minecraft:location_check",
+									"predicate": {
+										"biome": "minecraft:soul_sand_valley"
+									}
+								}
+							],
+							"type": "minecraft:item",
+							"name": "minecraft:golden_hoe",
+							"functions": [
+								{
+									"function": "minecraft:set_count",
+									"count": 8
+								}
+							]
+						},
+						{
+							"conditions": [
+								{
+									"condition": "minecraft:location_check",
+									"predicate": {
+										"biome": "minecraft:crimson_forest"
+									}
+								}
+							],
+							"type": "minecraft:item",
+							"name": "minecraft:golden_hoe",
+							"functions": [
+								{
+									"function": "minecraft:set_count",
+									"count": 8
+								}
+							]
+						},
+						{
+							"conditions": [
+								{
+									"condition": "minecraft:location_check",
+									"predicate": {
+										"biome": "minecraft:warped_forest"
+									}
+								}
+							],
+							"type": "minecraft:item",
+							"name": "minecraft:golden_hoe",
+							"functions": [
+								{
+									"function": "minecraft:set_count",
+									"count": 8
+								}
+							]
+						},
+						{
+							"conditions": [
+								{
+									"condition": "minecraft:location_check",
+									"predicate": {
+										"biome": "minecraft:basalt_deltas"
 									}
 								}
 							],
