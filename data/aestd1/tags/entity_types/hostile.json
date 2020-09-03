@@ -8,12 +8,9 @@
 		"minecraft:evoker",
 		"minecraft:ghast",
 		"minecraft:guardian",
-		"minecraft:hoglin",
 		"minecraft:husk",
 		"minecraft:magma_cube",
 		"minecraft:phantom",
-		"minecraft:piglin",
-		"minecraft:piglin_brute",
 		"minecraft:pillager",
 		"minecraft:ravager",
 		"minecraft:shulker",
@@ -26,7 +23,6 @@
 		"minecraft:witch",
 		"minecraft:wither",
 		"minecraft:wither_skeleton",
-		"minecraft:zoglin",
 		"minecraft:zombie",
 		"minecraft:zombie_villager"
 	]
