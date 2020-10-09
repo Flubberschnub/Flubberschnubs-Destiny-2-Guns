@@ -14,6 +14,10 @@ scoreboard objectives add cosmotarget dummy
 scoreboard objectives add healthpoints health
 scoreboard objectives add holdingtimer dummy
 
+##perk timers
+scoreboard objectives add masterOfArms dummy
+scoreboard objectives add feedingFrenzy dummy
+
 ##constants
 scoreboard players set Sunshotdamage Constant 45
 
