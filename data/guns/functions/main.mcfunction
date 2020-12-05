@@ -24,6 +24,18 @@ execute as @a[scores={ads=1..},tag=!reloading,nbt={SelectedItem:{id:"minecraft:c
 scoreboard players reset @a ads
 scoreboard players reset @a scope
 
+##sprinting
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{gun:1,CustomModelData:56,sunshot:1}}},predicate=!aestd1:flags/is_sprinting] run function guns:sunshot/resetads
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{gun:1,CustomModelData:99,graviton:1}}},predicate=!aestd1:flags/is_sprinting] run function guns:graviton/resetads
+execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{gun:1,CustomModelData:174,recluse:1}}},predicate=!aestd1:flags/is_sprinting] run function guns:recluse/resetads
+##sunshot
+execute as @a[predicate=aestd1:flags/is_sprinting,predicate=!aestd1:flags/is_sneaking,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{gun:1,sunshot:1}}}] run function guns:sunshot/sprinting
+execute as @a[predicate=aestd1:flags/is_sprinting,predicate=!aestd1:flags/is_sneaking,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{gun:1,sunshot:2}}}] run function guns:sunshot/sprinting
+##gravlance
+execute as @a[predicate=aestd1:flags/is_sprinting,predicate=!aestd1:flags/is_sneaking,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{gun:1,graviton:1}}}] run function guns:graviton/sprinting
+##recluse
+execute as @a[predicate=aestd1:flags/is_sprinting,predicate=!aestd1:flags/is_sneaking,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{gun:1,recluse:1}}}] run function guns:recluse/sprinting
+
 ##perks
 function guns:general/perks/tick
 
@@ -38,20 +50,20 @@ execute as @a[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{
 
 ##shooting
 ##sunshot
-execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,tag=!reloading,tag=!holding,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] at @s anchored eyes run function guns:sunshot/shoot
-execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,tag=!holding,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] at @s anchored eyes run function guns:sunshot/shoot
-execute as @a[scores={shootgun=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:sunshot/reload
-execute as @a[scores={shootgun=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:sunshot/reload
+execute as @a[scores={shootgun=1..,magazine=1..},predicate=!aestd1:flags/is_sprinting,tag=!rpm,tag=!reloading,tag=!holding,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] at @s anchored eyes run function guns:sunshot/shoot
+execute as @a[scores={shootgun=1..,magazine=1..},predicate=!aestd1:flags/is_sprinting,tag=!rpm,tag=!holding,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] at @s anchored eyes run function guns:sunshot/shoot
+execute as @a[scores={shootgun=1..},predicate=!aestd1:flags/is_sprinting,tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:sunshot/reload
+execute as @a[scores={shootgun=1..},predicate=!aestd1:flags/is_sprinting,tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,sunshot:2}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:sunshot/reload
 ##graviton
-execute as @a[scores={shootgun=1..,magazine=1..},tag=!rpm,tag=!holding,tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}}] at @s anchored eyes run function guns:graviton/shoot
-execute as @a[scores={shootgun=1..},tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:graviton/reload
+execute as @a[scores={shootgun=1..,magazine=1..},predicate=!aestd1:flags/is_sprinting,tag=!rpm,tag=!holding,tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}}] at @s anchored eyes run function guns:graviton/shoot
+execute as @a[scores={shootgun=1..},predicate=!aestd1:flags/is_sprinting,tag=!rpm,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,graviton:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:graviton/reload
 ##recluse
 #execute at @a[scores={shootgun=1..,magazine=1..},tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,recluse:1}}}] run playsound reclusehold master @a[distance=..30] ~ ~ ~ 5
 tag @a[tag=shootingrecluse,tag=!rpm] remove shootingrecluse
-execute as @a[scores={magazine=1..},tag=!rpm,tag=holding,tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,recluse:1}}}] at @s anchored eyes run function guns:recluse/shoot
+execute as @a[scores={magazine=1..},predicate=!aestd1:flags/is_sprinting,tag=!rpm,tag=holding,tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,recluse:1}}}] at @s anchored eyes run function guns:recluse/shoot
 tag @a[tag=!shootingrecluse] remove reclusesound
 execute at @a[tag=!shootingrecluse] run stopsound @a[distance=..30,tag=!shootingrecluse] master reclusehold
-execute as @a[scores={shootgun=1..},tag=!holding,tag=!rpm,tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,recluse:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:recluse/reload
+execute as @a[scores={shootgun=1..},predicate=!aestd1:flags/is_sprinting,tag=!holding,tag=!rpm,tag=!reloading,nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{gun:1,recluse:1}}}] unless entity @s[scores={magazine=1..}] at @s anchored eyes run function guns:recluse/reload
 
 ##recoil constantly runs on timer
 execute as @a[scores={recoiltimer=1..}] run function guns:general/recoiloop
@@ -65,6 +77,9 @@ execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count
 execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,graviton:1}}]}] unless entity @s[nbt={SelectedItem:{}}] run function guns:graviton/reload
 ##recluse
 execute as @a[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b,Count:1b,tag:{gun:1,recluse:1}}]}] unless entity @s[nbt={SelectedItem:{}}] run function guns:recluse/reload
+
+##reloadtimer reset while sprinting
+scoreboard players reset @a[predicate=aestd1:flags/is_sprinting] reloadtimer
 
 ##reload constantly runs on timer
 execute as @a[scores={reloadtimer=1..}] run function guns:general/reloadloop
