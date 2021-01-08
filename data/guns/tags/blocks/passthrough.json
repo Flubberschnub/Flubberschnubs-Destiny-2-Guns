@@ -60,6 +60,8 @@
     "minecraft:cave_air",
     "minecraft:void_air",
     "minecraft:structure_void",
-    "minecraft:moving_piston"
+    "minecraft:moving_piston",
+		"minecraft:snow",
+		"#minecraft:carpets"
   ]
 }
